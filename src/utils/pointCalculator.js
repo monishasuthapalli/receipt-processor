@@ -3,13 +3,46 @@ exports.calculatePoints = (receipt) => {
     let points = 0;
 
     // Calculate points based on the rules
-    points += calculateAlphanumericCharacters(receipt.retailer);
-    points += calculateRoundDollarAmount(receipt.total);
-    points += calculateMultipleOfQuarter(receipt.total);
-    points += calculateItemPairs(receipt.items);
-    points += calculateItemDescriptions(receipt.items);
-    points += calculateOddDayPoints(receipt.purchaseDate);
-    points += calculateTimePoints(receipt.purchaseTime);
+    
+    // points += calculateAlphanumericCharacters(receipt.retailer);
+    // points += calculateRoundDollarAmount(receipt.total);
+    // points += calculateMultipleOfQuarter(receipt.total);
+    // points += calculateItemPairs(receipt.items);
+    // points += calculateItemDescriptions(receipt.items);
+    // points += calculateOddDayPoints(receipt.purchaseDate);
+    // points += calculateTimePoints(receipt.purchaseTime);
+
+    const retailerPoints = calculateAlphanumericCharacters(receipt.retailer);
+    console.log('Retailer Points:', retailerPoints);
+    points += retailerPoints;
+
+    const roundDollarPoints = calculateRoundDollarAmount(receipt.total);
+    console.log('Round Dollar Points:', roundDollarPoints);
+    points += roundDollarPoints;
+
+    const multipleOfQuarterPoints = calculateMultipleOfQuarter(receipt.total);
+    console.log('Multiple of Quarter Points:', multipleOfQuarterPoints);
+    points += multipleOfQuarterPoints;
+
+    const itemPairsPoints = calculateItemPairs(receipt.items);
+    console.log('Item Pairs Points:', itemPairsPoints);
+    points += itemPairsPoints;
+
+    const itemDescriptionsPoints = calculateItemDescriptions(receipt.items);
+    console.log('Item Descriptions Points:', itemDescriptionsPoints);
+    points += itemDescriptionsPoints;
+
+    const oddDayPoints = calculateOddDayPoints(receipt.purchaseDate);
+    console.log('Odd Day Points:', oddDayPoints);
+    points += oddDayPoints;
+
+    const timePoints = calculateTimePoints(receipt.purchaseTime);
+    console.log('Time Points:', timePoints);
+    points += timePoints;
+
+    console.log('Total Points:', points);
+
+
 
     return points;
 };
@@ -55,5 +88,5 @@ function calculateOddDayPoints(purchaseDate) {
 
 function calculateTimePoints(purchaseTime) {
     const [hours, minutes] = purchaseTime.split(':').map(Number);
-    return hours >= 14 && hours < 16;
+    return hours >= 14 && hours < 16?10:0;
 }

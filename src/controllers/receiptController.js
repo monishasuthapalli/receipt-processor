@@ -8,7 +8,7 @@ exports.processReceipt = (req, res) => {
     const receipt = req.body;
     console.log('Received receipt:', receipt);
 
-    // Rest of your code for processing the receipt
+    // For processing the receipt
 
     // Send the response
 
