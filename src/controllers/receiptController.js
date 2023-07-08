@@ -32,3 +32,4 @@ exports.getPoints = (req, res) => {
 exports.home = (req, res) => {
     res.send('Website is running!');
 };
+

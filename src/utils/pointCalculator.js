@@ -3,14 +3,6 @@ exports.calculatePoints = (receipt) => {
     let points = 0;
 
     // Calculate points based on the rules
-    
-    // points += calculateAlphanumericCharacters(receipt.retailer);
-    // points += calculateRoundDollarAmount(receipt.total);
-    // points += calculateMultipleOfQuarter(receipt.total);
-    // points += calculateItemPairs(receipt.items);
-    // points += calculateItemDescriptions(receipt.items);
-    // points += calculateOddDayPoints(receipt.purchaseDate);
-    // points += calculateTimePoints(receipt.purchaseTime);
 
     const retailerPoints = calculateAlphanumericCharacters(receipt.retailer);
     console.log('Retailer Points:', retailerPoints);
@@ -88,5 +80,5 @@ function calculateOddDayPoints(purchaseDate) {
 
 function calculateTimePoints(purchaseTime) {
     const [hours, minutes] = purchaseTime.split(':').map(Number);
-    return hours >= 14 && hours < 16?10:0;
+    return hours >= 14 && hours < 16 ? 10 : 0;
 }
