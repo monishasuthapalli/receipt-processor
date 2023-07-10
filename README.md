@@ -7,8 +7,8 @@ This is a Receipt Processor application that processes receipts and calculates r
 
 To run this application, you need to have the following software installed:
 
-- Node.js (version X.X.X)
-- Docker (version X.X.X) [optional]
+- Node.js 
+- Docker 
 
 ## Installation
 
